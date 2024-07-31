@@ -4,12 +4,12 @@ public class VectorStudent implements IVector<Student> {
 
   private Student[] students = new Student[100];
 
-  private Integer totalOfItems = 0;
+  private Integer totalItems = 0;
 
   @Override
   public void add(Student o) {
-    this.students[this.totalOfItems] = o;
-    this.totalOfItems++;
+    this.students[this.totalItems] = o;
+    this.totalItems++;
   }
 
   @Override
@@ -34,28 +34,37 @@ public class VectorStudent implements IVector<Student> {
   }
 
   @Override
-  public boolean contains(Student o) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'contains'");
+  public boolean contains(Student student) {
+    for (int i = 0; i < this.totalItems; i++) {
+      if (student.equals(this.students[i])) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   @Override
   public int size() {
-    return this.totalOfItems;
+    return this.totalItems;
+  }
+
+  private boolean isPositionFilled(int position) {
+    return position >= 0 && position < this.totalItems;
   }
 
   @Override
   public String toString() {
-    if (this.totalOfItems == 0) {
+    if (this.totalItems == 0) {
       return "[]";
     }
 
     StringBuilder builder = new StringBuilder();
     builder.append("[");
-    for (int i = 0; i < this.totalOfItems; i++) {
+    for (int i = 0; i < this.totalItems; i++) {
       builder.append(this.students[i]);
       builder.append(", ");
-      builder.append(this.students[this.totalOfItems - 1]);
+      builder.append(this.students[this.totalItems - 1]);
       builder.append("]");
     }
 

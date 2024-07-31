@@ -14,8 +14,16 @@ public class VectorStudent implements IVector<Student> {
 
   @Override
   public void add(int position, Student o) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'add'");
+    if (!this.isValidPosition(position)) {
+      throw new IllegalArgumentException("Invalid position");
+    }
+
+    for (int i = this.totalItems - 1; i >= position; i--) {
+      this.students[i + 1] = this.students[i];
+    }
+
+    this.students[position] = o;
+    this.totalItems++;
   }
 
   @Override
@@ -51,6 +59,10 @@ public class VectorStudent implements IVector<Student> {
 
   private boolean isPositionFilled(int position) {
     return position >= 0 && position < this.totalItems;
+  }
+
+  private boolean isValidPosition(int position) {
+    return position >= 0 && position <= this.totalItems;
   }
 
   @Override

@@ -42,4 +42,22 @@ public class VectorStudent implements IVector<Student> {
     throw new UnsupportedOperationException("Unimplemented method 'size'");
   }
 
+  @Override
+  public String toString() {
+    if (this.totalOfItems == 0) {
+      return "[]";
+    }
+
+    StringBuilder builder = new StringBuilder();
+    builder.append("[");
+    for (int i = 0; i < this.totalOfItems; i++) {
+      builder.append(this.students[i]);
+      builder.append(", ");
+      builder.append(this.students[this.totalOfItems - 1]);
+      builder.append("]");
+    }
+
+    return builder.toString();
+  }
+
 }

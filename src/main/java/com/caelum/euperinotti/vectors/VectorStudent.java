@@ -38,8 +38,7 @@ public class VectorStudent implements IVector<Student> {
 
   @Override
   public int size() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'size'");
+    return this.totalOfItems;
   }
 
   @Override

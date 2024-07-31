@@ -20,8 +20,11 @@ public class VectorStudent implements IVector<Student> {
 
   @Override
   public Student get(int position) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'get'");
+    if (!this.isPositionFilled(position)) {
+      throw new IllegalStateException("Invalid position given");
+    }
+
+    return this.students[position];
   }
 
   @Override

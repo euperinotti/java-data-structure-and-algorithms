@@ -8,12 +8,14 @@ public class VectorStudent implements IVector<Student> {
 
   @Override
   public void add(Student o) {
+    this.garanteeSpace();
     this.students[this.totalItems] = o;
     this.totalItems++;
   }
 
   @Override
   public void add(int position, Student o) {
+    this.garanteeSpace();
     if (!this.isValidPosition(position)) {
       throw new IllegalArgumentException("Invalid position");
     }

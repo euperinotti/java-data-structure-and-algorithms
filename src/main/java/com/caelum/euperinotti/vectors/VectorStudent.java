@@ -37,8 +37,15 @@ public class VectorStudent implements IVector<Student> {
 
   @Override
   public void remove(int position) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    if (!this.isPositionFilled(position)) {
+      throw new IllegalStateException("Invalid position given");
+    }
+
+    for (int i = position; i < this.totalItems; i++) {
+      this.students[i] = this.students[i + 1];
+    }
+
+    this.totalItems--;
   }
 
   @Override
@@ -83,4 +90,13 @@ public class VectorStudent implements IVector<Student> {
     return builder.toString();
   }
 
+  private void garanteeSpace() {
+    if (this.totalItems == this.students.length) {
+      Student[] newArrayStudents = new Student[this.students.length * 2];
+      for (int i = 0; i < this.totalItems - 1; i++) {
+        newArrayStudents[i] = this.students[i];
+      }
+      this.students = newArrayStudents;
+    }
+  }
 }

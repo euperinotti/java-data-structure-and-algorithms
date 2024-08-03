@@ -1,7 +1,9 @@
 package com.caelum.euperinotti.vectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -68,6 +70,15 @@ public class VectorTest {
 
     assertNotEquals(sut.get(1), students[1]);
     assertEquals(this.sut.size(), 2);
+  }
+
+  @Test
+  public void shouldContainStudent() {
+    this.sut.add(this.students[0]);
+    this.sut.add(this.students[1]);
+
+    assertFalse(this.sut.contains(this.students[2]));
+    assertTrue(this.sut.contains(this.students[0]));
   }
 
 }

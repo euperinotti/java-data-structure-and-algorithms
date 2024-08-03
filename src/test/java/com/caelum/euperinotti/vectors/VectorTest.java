@@ -47,5 +47,20 @@ public class VectorTest {
     assertEquals(student, this.sut.get(2));
   }
 
+  @Test
+  public void shouldGetStudentAtSpecificPosition() {
+    Student student = new Student("Jonathan Hogan");
+    Student student2 = new Student("Jay Franklin");
+    Student student3 = new Student("Joe Stanley");
+
+    this.sut.add(student);
+    this.sut.add(student2);
+    this.sut.add(student3);
+
+    Student studentOnArray = this.sut.get(1);
+
+    assertEquals(student2, studentOnArray);
+  }
+
 
 }

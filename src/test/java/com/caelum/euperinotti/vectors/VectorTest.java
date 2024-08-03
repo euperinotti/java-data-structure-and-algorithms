@@ -81,4 +81,13 @@ public class VectorTest {
     assertTrue(this.sut.contains(this.students[0]));
   }
 
+  @Test
+  public void shouldReturnArraySize() {
+    this.sut.add(this.students[0]);
+    this.sut.add(this.students[1]);
+    this.sut.add(this.students[2]);
+
+    assertEquals(3, this.sut.size());
+  }
+
 }

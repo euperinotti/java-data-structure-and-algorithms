@@ -9,6 +9,12 @@ public class VectorTest {
 
   private Vector<Student> sut;
 
+  private Student[] students = new Student[] {
+    new Student("Jonathan Hogan"),
+    new Student("Jay Franklin"),
+    new Student("Joe Stanley")
+  };
+
   @BeforeEach
   public void setUp() {
     this.sut = new Vector<Student>(100);
@@ -22,44 +28,33 @@ public class VectorTest {
 
   @Test
   public void shouldAddStudentAtTheEnd() {
-    Student student = new Student("Jonathan Hogan");
-    Student student2 = new Student("Jay Franklin");
+    this.sut.add(this.students[0]);
+    this.sut.add(this.students[1]);
 
-    this.sut.add(student);
-    this.sut.add(student2);
-
-    assertEquals(student, this.sut.get(0));
-    assertEquals(student2, this.sut.get(1));
+    assertEquals(this.students[0], this.sut.get(0));
+    assertEquals(this.students[1], this.sut.get(1));
   }
 
   @Test
   public void shouldAddStudentAtSpecificPosition() {
-    Student student = new Student("Jonathan Hogan");
-    Student student2 = new Student("Jay Franklin");
-    Student student3 = new Student("Joe Stanley");
+    this.sut.add(this.students[0]);
+    this.sut.add(0, this.students[1]);
+    this.sut.add(1, this.students[2]);
 
-    this.sut.add(student);
-    this.sut.add(0, student2);
-    this.sut.add(1, student3);
-
-    assertEquals(student2, this.sut.get(0));
-    assertEquals(student3, this.sut.get(1));
-    assertEquals(student, this.sut.get(2));
+    assertEquals(this.students[1], this.sut.get(0));
+    assertEquals(this.students[2], this.sut.get(1));
+    assertEquals(this.students[0], this.sut.get(2));
   }
 
   @Test
   public void shouldGetStudentAtSpecificPosition() {
-    Student student = new Student("Jonathan Hogan");
-    Student student2 = new Student("Jay Franklin");
-    Student student3 = new Student("Joe Stanley");
-
-    this.sut.add(student);
-    this.sut.add(student2);
-    this.sut.add(student3);
+    this.sut.add(this.students[0]);
+    this.sut.add(this.students[1]);
+    this.sut.add(this.students[2]);
 
     Student studentOnArray = this.sut.get(1);
 
-    assertEquals(student2, studentOnArray);
+    assertEquals(this.students[1], studentOnArray);
   }
 
 

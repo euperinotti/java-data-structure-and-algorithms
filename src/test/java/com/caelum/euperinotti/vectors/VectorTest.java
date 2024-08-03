@@ -1,6 +1,7 @@
 package com.caelum.euperinotti.vectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -57,5 +58,16 @@ public class VectorTest {
     assertEquals(this.students[1], studentOnArray);
   }
 
+  @Test
+  public void shouldRemoveStudentAtSpecificPosition() {
+    this.sut.add(this.students[0]);
+    this.sut.add(this.students[1]);
+    this.sut.add(this.students[2]);
+
+    this.sut.remove(1);
+
+    assertNotEquals(sut.get(1), students[1]);
+    assertEquals(this.sut.size(), 2);
+  }
 
 }

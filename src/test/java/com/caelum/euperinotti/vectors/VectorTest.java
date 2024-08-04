@@ -104,4 +104,17 @@ public class VectorTest {
     });
   }
 
+  @Test
+  public void shouldRemoveStudentByObjectReference() {
+    this.sut.add(this.students[0]);
+    this.sut.add(this.students[1]);
+    this.sut.add(this.students[1]);
+    this.sut.add(this.students[1]);
+    this.sut.add(this.students[2]);
+
+    this.sut.remove(this.students[1]);
+
+    assertEquals(this.sut.get(0), this.students[0]);
+    assertEquals(2, this.sut.size());
+  }
 }

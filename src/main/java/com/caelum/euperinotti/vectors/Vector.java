@@ -73,6 +73,17 @@ public class Vector<T> implements IVector<T> {
     return this.totalItems;
   }
 
+  @Override
+  public void remove(T o) {
+    while (this.contains(o)) {
+      for (int i = 0; i < this.totalItems; i++) {
+        if (o.equals(this.array[i])) {
+          this.remove(i);
+        }
+      }
+    }
+  }
+
   private boolean isPositionFilled(int position) {
     return position >= 0 && position < this.totalItems;
   }

@@ -140,4 +140,15 @@ public class Vector<T> implements IVector<T> {
 
     return -1;
   }
+
+  @Override
+  public int lastIndexOf(T o) {
+    for (int i = this.totalItems - 1; i >= 0; i--) {
+      if (o.equals(this.array[i])) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
 }

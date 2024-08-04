@@ -10,4 +10,5 @@ public interface IVector<T> {
   int size();
   void clear();
   int indexOf(T o);
+  int lastIndexOf(T o);
 }

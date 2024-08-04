@@ -128,4 +128,16 @@ public class VectorTest {
 
     assertEquals(0, this.sut.size());
   }
+
+  @Test
+  public void shouldReturnFirstIndexOfStudent() {
+    this.sut.add(this.students[0]);
+    this.sut.add(this.students[1]);
+    this.sut.add(this.students[2]);
+    this.sut.add(this.students[1]);
+    this.sut.add(this.students[2]);
+
+    assertEquals(1, this.sut.indexOf(this.students[1]));
+    assertEquals(2, this.sut.indexOf(this.students[2]));
+  }
 }

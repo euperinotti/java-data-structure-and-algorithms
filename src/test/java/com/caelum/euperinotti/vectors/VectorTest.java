@@ -140,4 +140,16 @@ public class VectorTest {
     assertEquals(1, this.sut.indexOf(this.students[1]));
     assertEquals(2, this.sut.indexOf(this.students[2]));
   }
+
+  @Test
+  public void shouldReturnLastIndexOfStudent() {
+    this.sut.add(this.students[0]);
+    this.sut.add(this.students[1]);
+    this.sut.add(this.students[2]);
+    this.sut.add(this.students[1]);
+    this.sut.add(this.students[2]);
+
+    assertEquals(3, this.sut.lastIndexOf(this.students[1]));
+    assertEquals(4, this.sut.lastIndexOf(this.students[2]));
+  }
 }

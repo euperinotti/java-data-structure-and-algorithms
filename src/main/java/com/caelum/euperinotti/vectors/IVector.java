@@ -9,4 +9,5 @@ public interface IVector<T> {
   boolean contains(T o);
   int size();
   void clear();
+  int indexOf(T o);
 }

@@ -129,4 +129,15 @@ public class Vector<T> implements IVector<T> {
     this.array = (T[]) new Object[this.array.length];
     this.totalItems = 0;
   }
+
+  @Override
+  public int indexOf(T o) {
+    for (int i = 0; i < this.totalItems; i++) {
+      if (o.equals(this.array[i])) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
 }

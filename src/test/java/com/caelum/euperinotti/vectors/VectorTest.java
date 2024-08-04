@@ -117,4 +117,15 @@ public class VectorTest {
     assertEquals(this.sut.get(0), this.students[0]);
     assertEquals(2, this.sut.size());
   }
+
+  @Test
+  public void shouldClearVector() {
+    this.sut.add(this.students[0]);
+    this.sut.add(this.students[1]);
+    this.sut.add(this.students[2]);
+
+    this.sut.clear();
+
+    assertEquals(0, this.sut.size());
+  }
 }

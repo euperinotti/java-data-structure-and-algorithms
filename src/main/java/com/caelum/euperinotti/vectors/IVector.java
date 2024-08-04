@@ -8,4 +8,5 @@ public interface IVector<T> {
   void remove(T o);
   boolean contains(T o);
   int size();
+  void clear();
 }

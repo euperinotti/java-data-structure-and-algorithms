@@ -123,4 +123,10 @@ public class Vector<T> implements IVector<T> {
   public int getLength() {
     return this.array.length;
   }
+
+  @Override
+  public void clear() {
+    this.array = (T[]) new Object[this.array.length];
+    this.totalItems = 0;
+  }
 }

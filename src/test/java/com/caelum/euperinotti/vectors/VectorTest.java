@@ -3,6 +3,7 @@ package com.caelum.euperinotti.vectors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -88,6 +89,19 @@ public class VectorTest {
     this.sut.add(this.students[2]);
 
     assertEquals(3, this.sut.size());
+  }
+
+  @Test
+  public void shouldThrowIfInvalidPositionIsGiven() {
+    this.sut.add(this.students[0]);
+
+    assertThrows(RuntimeException.class, () -> {
+      sut.get(-1);
+    });
+
+    assertThrows(RuntimeException.class, () -> {
+      sut.get(10);
+    });
   }
 
 }

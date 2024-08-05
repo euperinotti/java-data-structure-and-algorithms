@@ -28,21 +28,25 @@ public class LinkedList<T> implements ILinkedList<T>{
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'get'");
   }
+
   @Override
   public void remove(int position) {
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'remove'");
   }
+
   @Override
   public boolean contains(T o) {
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'contains'");
   }
+
   @Override
   public int size() {
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'size'");
   }
+
   @Override
   public void addOnBeginning(T o) {
     Cell<T> newCell = new Cell<T>(this.first, o);
@@ -60,9 +64,32 @@ public class LinkedList<T> implements ILinkedList<T>{
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'removeFromBeginning'");
   }
+
   @Override
   public void removeFromEnd() {
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'removeFromEnd'");
+  }
+
+  @Override
+  public String toString() {
+    if (this.totalItems == 0) {
+      return "[]";
+    }
+
+    StringBuilder builder = new StringBuilder();
+    builder.append("[");
+    Cell<T> current = this.first;
+
+    for (int i = 0; i < totalItems - 1; i ++) {
+      builder.append(current.getElement());
+      builder.append(",");
+      current = current.getNext();
+    }
+
+    builder.append(current.getElement());
+    builder.append("]");
+
+    return builder.toString();
   }
 }

@@ -3,6 +3,7 @@ package com.caelum.euperinotti.linkedlist;
 public class LinkedList<T> implements ILinkedList<T>{
   private Cell<T> first;
   private Cell<T> last;
+  private int totalItems = 0;
 
   @Override
   public void add(T o) {
@@ -36,9 +37,16 @@ public class LinkedList<T> implements ILinkedList<T>{
   }
   @Override
   public void addOnBeginning(T o) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'addOnBeginning'");
+    Cell<T> newCell = new Cell<T>(this.first, o);
+    this.first = newCell;
+
+    if (this.totalItems == 0) {
+      this.last = this.first;
+    }
+
+    this.totalItems++;
   }
+
   @Override
   public void removeFromBeginning() {
     // TODO Auto-generated method stub

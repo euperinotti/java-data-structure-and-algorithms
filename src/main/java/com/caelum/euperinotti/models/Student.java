@@ -1,4 +1,4 @@
-package com.caelum.euperinotti.vectors;
+package com.caelum.euperinotti.models;
 
 public class Student {
 

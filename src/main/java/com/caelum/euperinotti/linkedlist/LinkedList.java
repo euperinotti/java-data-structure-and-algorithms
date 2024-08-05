@@ -7,14 +7,22 @@ public class LinkedList<T> implements ILinkedList<T>{
 
   @Override
   public void add(T o) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'add'");
+    if (this.totalItems == 0) {
+      this.addOnBeginning(o);
+      return;
+    }
+    Cell<T> newCell = new Cell<T>(o);
+    this.last.setNext(newCell);
+    this.last = newCell;
+    this.totalItems++;
   }
+
   @Override
   public void add(int position, T o) {
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'add'");
   }
+
   @Override
   public T get(int position) {
     // TODO Auto-generated method stub

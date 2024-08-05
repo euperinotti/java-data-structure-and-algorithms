@@ -71,6 +71,24 @@ public class LinkedList<T> implements ILinkedList<T>{
     throw new UnsupportedOperationException("Unimplemented method 'removeFromEnd'");
   }
 
+  private boolean isPositionFilled(int position) {
+    return position >= 0 && position < this.totalItems;
+  }
+
+  private Cell<T> getCell(int position) {
+    if (!this.isPositionFilled(position)) {
+      throw new IllegalStateException("Invalid position given");
+    }
+
+    Cell<T> current = this.first;
+
+    for (int i = 0; i < position; i++) {
+      current = current.getNext();
+    }
+
+    return current;
+  }
+
   @Override
   public String toString() {
     if (this.totalItems == 0) {

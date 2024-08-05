@@ -19,8 +19,26 @@ public class LinkedList<T> implements ILinkedList<T>{
 
   @Override
   public void add(int position, T o) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'add'");
+    if (position == 0) {
+      this.addOnBeginning(o);
+      return;
+    }
+
+    if (position == totalItems) {
+      this.add(o);
+      return;
+    }
+
+    // Get the reference of the cell behind the current position
+    Cell<T> previous = this.getCell(position - 1);
+
+    // Create a new cell and update the reference of the next cell in the list
+    Cell<T> newCell = new Cell<T>(previous.getNext(), o);
+
+    // Change the reference 'next' of the previous cell to point to 'newCell'
+    previous.setNext(newCell);
+    this.totalItems++;
+
   }
 
   @Override

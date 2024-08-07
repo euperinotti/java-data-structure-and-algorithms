@@ -1,4 +1,4 @@
-package com.caelum.euperinotti.linkedlist;
+package com.caelum.euperinotti.datastructures.linkedlist;
 
 public class LinkedList<T> implements ILinkedList<T>{
   private Cell<T> first;
@@ -38,13 +38,11 @@ public class LinkedList<T> implements ILinkedList<T>{
     // Change the reference 'next' of the previous cell to point to 'newCell'
     previous.setNext(newCell);
     this.totalItems++;
-
   }
 
   @Override
   public T get(int position) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'get'");
+    return this.getCell(position).getElement();
   }
 
   @Override

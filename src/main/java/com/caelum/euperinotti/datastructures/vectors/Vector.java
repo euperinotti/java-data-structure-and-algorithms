@@ -1,4 +1,4 @@
-package com.caelum.euperinotti.vectors;
+package com.caelum.euperinotti.datastructures.vectors;
 
 public class Vector<T> implements IVector<T> {
   private T[] array;

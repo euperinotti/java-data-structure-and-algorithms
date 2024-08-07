@@ -1,4 +1,4 @@
-package com.caelum.euperinotti.vectors;
+package com.caelum.euperinotti.datastructures.vectors;
 
 public interface IVector<T> {
   void add(T o);

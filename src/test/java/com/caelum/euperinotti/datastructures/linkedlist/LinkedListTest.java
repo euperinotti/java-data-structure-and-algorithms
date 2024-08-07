@@ -1,4 +1,4 @@
-package com.caelum.euperinotti.linkedlist;
+package com.caelum.euperinotti.datastructures.linkedlist;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

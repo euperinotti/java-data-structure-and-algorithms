@@ -1,4 +1,4 @@
-package com.caelum.euperinotti.linkedlist;
+package com.caelum.euperinotti.datastructures.linkedlist;
 
 public class Cell<T> {
   private Cell<T> next;

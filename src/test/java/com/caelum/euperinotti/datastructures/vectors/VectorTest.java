@@ -1,4 +1,4 @@
-package com.caelum.euperinotti.vectors;
+package com.caelum.euperinotti.datastructures.vectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

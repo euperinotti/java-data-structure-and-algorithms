@@ -69,8 +69,17 @@ public class LinkedList<T> implements ILinkedList<T> {
 
   @Override
   public boolean contains(T o) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'contains'");
+    Cell<T> cell = this.first;
+
+    while (cell != null) {
+      if (cell.getElement().equals(o)) {
+        return true;
+      }
+
+      cell = cell.getNext();
+    }
+
+    return false;
   }
 
   @Override

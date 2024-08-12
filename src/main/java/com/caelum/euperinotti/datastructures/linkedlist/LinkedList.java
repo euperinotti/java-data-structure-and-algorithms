@@ -12,6 +12,7 @@ public class LinkedList<T> implements ILinkedList<T> {
       return;
     }
     Cell<T> newCell = new Cell<T>(o);
+    newCell.setPrevious(this.last);
     this.last.setNext(newCell);
     this.last = newCell;
     this.totalItems++;
@@ -29,14 +30,16 @@ public class LinkedList<T> implements ILinkedList<T> {
       return;
     }
 
-    // Get the reference of the cell behind the current position
-    Cell<T> previous = this.getCell(position - 1);
+    Cell<T> element = this.getCell(position);
+    Cell<T> previous = element.getPrevious();
+    Cell<T> next = element.getNext();
 
-    // Create a new cell and update the reference of the next cell in the list
-    Cell<T> newCell = new Cell<T>(previous.getNext(), o);
+    Cell<T> newCell = new Cell<T>(o);
+    newCell.setNext(next);
+    newCell.setPrevious(previous);
 
-    // Change the reference 'next' of the previous cell to point to 'newCell'
     previous.setNext(newCell);
+    next.setPrevious(newCell);
     this.totalItems++;
   }
 
@@ -106,8 +109,15 @@ public class LinkedList<T> implements ILinkedList<T> {
 
   @Override
   public void removeFromBeginning() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'removeFromBeginning'");
+    this.first = this.first.getNext();
+
+    if (this.first == null) {
+      this.last = null;
+    } else {
+      this.first.setPrevious(null);
+    }
+
+    this.totalItems--;
   }
 
   @Override

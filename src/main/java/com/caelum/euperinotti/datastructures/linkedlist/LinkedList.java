@@ -47,8 +47,24 @@ public class LinkedList<T> implements ILinkedList<T> {
 
   @Override
   public void remove(int position) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    if (position == 0) {
+      this.removeFromBeginning();
+      return;
+    }
+
+    if (position == this.totalItems - 1) {
+      this.removeFromEnd();
+      return;
+    }
+
+    Cell<T> element = this.getCell(position);
+    Cell<T> previous = element.getPrevious();
+    Cell<T> next = element.getNext();
+
+    previous.setNext(next);
+    next.setPrevious(previous);
+
+    this.totalItems--;
   }
 
   @Override
@@ -89,12 +105,13 @@ public class LinkedList<T> implements ILinkedList<T> {
 
     if (this.size() == 1) {
       this.removeFromBeginning();
-    } else {
-      Cell<T> previous = this.last.getPrevious();
-      previous.setNext(null);
-      this.last = previous;
-      this.totalItems--;
+      return;
     }
+
+    Cell<T> previous = this.last.getPrevious();
+    previous.setNext(null);
+    this.last = previous;
+    this.totalItems--;
   }
 
   private boolean isPositionFilled(int position) {

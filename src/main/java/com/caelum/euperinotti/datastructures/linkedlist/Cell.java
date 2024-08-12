@@ -2,6 +2,7 @@ package com.caelum.euperinotti.datastructures.linkedlist;
 
 public class Cell<T> {
   private Cell<T> next;
+  private Cell<T> previous;
   private T element;
 
   public Cell(Cell<T> next, T element) {
@@ -24,5 +25,13 @@ public class Cell<T> {
 
   public T getElement() {
     return element;
+  }
+
+  public void setPrevious(Cell<T> previous) {
+    this.previous = previous;
+  }
+
+  public Cell<T> getPrevious() {
+    return previous;
   }
 }

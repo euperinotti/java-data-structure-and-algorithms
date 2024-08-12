@@ -1,6 +1,6 @@
 package com.caelum.euperinotti.datastructures.linkedlist;
 
-public class LinkedList<T> implements ILinkedList<T>{
+public class LinkedList<T> implements ILinkedList<T> {
   private Cell<T> first;
   private Cell<T> last;
   private int totalItems = 0;
@@ -83,8 +83,18 @@ public class LinkedList<T> implements ILinkedList<T>{
 
   @Override
   public void removeFromEnd() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'removeFromEnd'");
+    if (!this.isPositionFilled(this.totalItems - 1)) {
+      throw new IllegalArgumentException("Position does not exists");
+    }
+
+    if (this.size() == 1) {
+      this.removeFromBeginning();
+    } else {
+      Cell<T> previous = this.last.getPrevious();
+      previous.setNext(null);
+      this.last = previous;
+      this.totalItems--;
+    }
   }
 
   private boolean isPositionFilled(int position) {
@@ -115,7 +125,7 @@ public class LinkedList<T> implements ILinkedList<T>{
     builder.append("[");
     Cell<T> current = this.first;
 
-    for (int i = 0; i < totalItems - 1; i ++) {
+    for (int i = 0; i < totalItems - 1; i++) {
       builder.append(current.getElement());
       builder.append(",");
       current = current.getNext();

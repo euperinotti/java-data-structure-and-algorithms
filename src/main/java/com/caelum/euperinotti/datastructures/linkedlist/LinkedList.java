@@ -84,8 +84,7 @@ public class LinkedList<T> implements ILinkedList<T> {
 
   @Override
   public int size() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'size'");
+    return this.totalItems;
   }
 
   @Override

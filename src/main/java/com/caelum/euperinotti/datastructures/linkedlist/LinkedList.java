@@ -89,11 +89,16 @@ public class LinkedList<T> implements ILinkedList<T> {
 
   @Override
   public void addOnBeginning(T o) {
-    Cell<T> newCell = new Cell<T>(this.first, o);
-    this.first = newCell;
+    Cell<T> newCell = new Cell<T>(o);
 
     if (this.totalItems == 0) {
+      this.first = newCell;
       this.last = this.first;
+    } else {
+      newCell.setNext(this.first);
+      newCell.setPrevious(null);
+      this.first.setPrevious(newCell);
+      this.first = newCell;
     }
 
     this.totalItems++;

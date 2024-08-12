@@ -32,14 +32,14 @@ public class LinkedList<T> implements ILinkedList<T> {
 
     Cell<T> element = this.getCell(position);
     Cell<T> previous = element.getPrevious();
-    Cell<T> next = element.getNext();
 
     Cell<T> newCell = new Cell<T>(o);
-    newCell.setNext(next);
     newCell.setPrevious(previous);
+    newCell.setNext(element);
 
     previous.setNext(newCell);
-    next.setPrevious(newCell);
+    element.setPrevious(newCell);
+
     this.totalItems++;
   }
 

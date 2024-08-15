@@ -13,8 +13,7 @@ public class Stack<T> implements IStack<T> {
 
   @Override
   public T pop() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'pop'");
+    return this.stack.remove(this.stack.size() - 1);
   }
 
   @Override

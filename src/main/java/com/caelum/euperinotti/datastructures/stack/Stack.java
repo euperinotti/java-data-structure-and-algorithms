@@ -18,8 +18,7 @@ public class Stack<T> implements IStack<T> {
 
   @Override
   public boolean isEmpty() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+    return this.stack.isEmpty();
   }
 
   @Override

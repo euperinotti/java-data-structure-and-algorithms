@@ -13,6 +13,7 @@ public class Stack<T> implements IStack<T> {
 
   @Override
   public T pop() {
+    if (this.stack.size() == 0) return null;
     return this.stack.remove(this.stack.size() - 1);
   }
 
@@ -23,6 +24,7 @@ public class Stack<T> implements IStack<T> {
 
   @Override
   public T peek() {
+    if (this.stack.size() == 0) return null;
     return this.stack.get(this.stack.size() - 1);
   }
 

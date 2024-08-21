@@ -36,6 +36,11 @@ public class StackTest {
   }
 
   @Test
+  void pop_shouldReturnNullIfStackIsEmpty() {
+    assertTrue(sut.pop() == null);
+  }
+
+  @Test
   void peek_shouldReturnTopElementOfStack() {
     Piece piece = new Piece("Sword");
     Piece piece2 = new Piece("Phone");
@@ -44,6 +49,11 @@ public class StackTest {
     sut.push(piece2);
 
     assertTrue(piece2.equals(sut.peek()));
+  }
+
+  @Test
+  void peek_shouldReturnNullIfStackIsEmpty() {
+    assertTrue(sut.peek() == null);
   }
 
   @Test
